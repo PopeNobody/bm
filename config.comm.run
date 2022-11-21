@@ -1,0 +1,10 @@
+
+s="${BASH_SOURCE}"
+d=$(cd $(dirname "$s") && pwd)
+b=$(basename "$s")
+p=$(basename "$PWD" | sed 's,-.*,,')
+
+echo "$s" "$d" "$b"
+
+set -- --prefix=$HOME/stow/bm
+set -- --program-transform-name='s/(make|bash)/x\0/'
