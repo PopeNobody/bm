@@ -1,0 +1,6 @@
+[submodule "bash"]
+	path = bash
+	url = https://github.com/PopeNobody/bash.git
+[submodule "make"]
+	path = make
+	url = https://github.com/PopeNobody/make.git
