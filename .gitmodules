@@ -4,6 +4,3 @@
 [submodule "make"]
 	path = make
 	url = git@github.com:PopeNobody/make.git
-[submodule "libpwent"]
-	path = libpwent
-	url = git@github.com:PopeNobody/libpwent
