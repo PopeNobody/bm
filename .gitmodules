@@ -7,3 +7,6 @@
 [submodule "libpwent"]
 	path = libpwent
 	url = git@github.com:PopeNobody/libpwent
+[submodule "bash-old"]
+	path = bash-old
+	url = https://github.com/PopeNobody/bash-old.git
