@@ -1,9 +1,11 @@
+set -xv
 source $(dirname "${BASH_SOURCE}")/config.comm.run
+set -- "$@" --enable-static
 exec bash configure "$@"
 
-#  `configure' configures GNU Make 4.4 to adapt to many kinds of systems.
+#  `configure' configures libevent 2.2.0-alpha-dev to adapt to many kinds of systems.
 #  
-#  Usage: ./configure [OPTION]... [VAR=VALUE]...
+#  Usage: ./libevent/configure [OPTION]... [VAR=VALUE]...
 #  
 #  To assign environment variables (e.g., CC, CFLAGS...), specify them as
 #  VAR=VALUE.  See below for descriptions of some of the useful variables.
@@ -50,7 +52,7 @@ exec bash configure "$@"
 #    --infodir=DIR           info documentation [DATAROOTDIR/info]
 #    --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
 #    --mandir=DIR            man documentation [DATAROOTDIR/man]
-#    --docdir=DIR            documentation root [DATAROOTDIR/doc/make]
+#    --docdir=DIR            documentation root [DATAROOTDIR/doc/libevent]
 #    --htmldir=DIR           html documentation [DOCDIR]
 #    --dvidir=DIR            dvi documentation [DOCDIR]
 #    --pdfdir=DIR            pdf documentation [DOCDIR]
@@ -75,29 +77,61 @@ exec bash configure "$@"
 #                            do not reject slow dependency extractors
 #    --disable-dependency-tracking
 #                            speeds up one-time build
+#    --disable-gcc-warnings, disable verbose warnings with GCC
+#  
+#    --enable-gcc-hardening, enable compiler security checks
+#  
+#    --disable-thread-support, disable support for threading
+#  
+#    --disable-malloc-replacement, disable support for replacing the memory mgt functions
+#  
+#    --disable-openssl, disable support for openssl encryption
+#  
+#    --disable-mbedtls, disable support for mbedtls encryption
+#  
+#    --disable-debug-mode, disable support for running in debug mode
+#  
+#    --disable-libevent-install, disable installation of libevent
+#  
+#    --disable-libevent-regress, skip regress in make check
+#  
+#    --disable-samples, skip building of sample programs
+#  
+#    --enable-function-sections, make static library allow smaller binaries with --gc-sections
+#  
+#    --enable-verbose-debug, verbose debug logging
+#  
+#    --disable-clock-gettime, do not use clock_gettime even if it is available
+#  
+#    --enable-shared[=PKGS]  build shared libraries [default=yes]
+#    --enable-static[=PKGS]  build static libraries [default=yes]
+#    --enable-fast-install[=PKGS]
+#                            optimize for fast installation [default=yes]
+#    --disable-libtool-lock  avoid locking (might break parallel builds)
 #    --disable-largefile     omit support for large files
-#    --disable-year2038      omit support for timestamps past the year 2038
-#    --enable-cross-guesses={conservative|risky}
-#                            specify policy for cross-compilation guesses
-#    --disable-nls           do not use Native Language Support
-#    --disable-rpath         do not hardcode runtime library paths
-#    --enable-case-insensitive-file-system
-#                            assume file systems are case insensitive
-#    --disable-job-server    disallow recursive make communication during -jN
-#    --disable-load          disable support for the 'load' operation
-#    --disable-posix-spawn   disable support for posix_spawn()
+#    --enable-doxygen-doc    generate any doxygen documentation
+#    --enable-doxygen-dot    generate graphics for doxygen documentation
+#    --enable-doxygen-man    generate doxygen manual pages
+#    --enable-doxygen-rtf    generate doxygen RTF documentation
+#    --enable-doxygen-xml    generate doxygen XML documentation
+#    --enable-doxygen-chm    generate doxygen compressed HTML help documentation
+#    --enable-doxygen-chi    generate doxygen separate compressed HTML help index
+#                            file
+#    --disable-doxygen-html  don't generate doxygen plain HTML documentation
+#    --enable-doxygen-ps     generate doxygen PostScript documentation
+#    --enable-doxygen-pdf    generate doxygen PDF documentation
 #  
 #  Optional Packages:
 #    --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
 #    --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+#    --with-pic[=PKGS]       try to use only PIC/non-PIC objects [default=use
+#                            both]
+#    --with-aix-soname=aix|svr4|both
+#                            shared library versioning (aka "SONAME") variant to
+#                            provide on AIX, [default=aix].
 #    --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
-#    --with-libiconv-prefix[=DIR]  search for libiconv in DIR/include and DIR/lib
-#    --without-libiconv-prefix     don't search for libiconv in includedir and libdir
-#    --with-libintl-prefix[=DIR]  search for libintl in DIR/include and DIR/lib
-#    --without-libintl-prefix     don't search for libintl in includedir and libdir
-#    --with-guile            Support GNU Guile for embedded scripting
-#    --with-customs=DIR      enable remote jobs via Customs--see README.customs
-#    --with-dmalloc          use dmalloc, as in http://www.dmalloc.com
+#    --with-sysroot[=DIR]    Search for dependent libraries within DIR (or the
+#                            compiler's sysroot if not specified).
 #  
 #  Some influential environment variables:
 #    CC          C compiler command
@@ -107,19 +141,20 @@ exec bash configure "$@"
 #    LIBS        libraries to pass to the linker, e.g. -l<library>
 #    CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if
 #                you have headers in a nonstandard directory <include dir>
-#    CPP         C preprocessor
+#    LT_SYS_LIBRARY_PATH
+#                User-defined run-time library search path.
 #    PKG_CONFIG  path to pkg-config utility
 #    PKG_CONFIG_PATH
 #                directories to add to pkg-config's search path
 #    PKG_CONFIG_LIBDIR
 #                path overriding pkg-config's built-in search path
-#    GUILE_CFLAGS
-#                C compiler flags for GUILE, overriding pkg-config
-#    GUILE_LIBS  linker flags for GUILE, overriding pkg-config
+#    CPP         C preprocessor
+#    DOXYGEN_PAPER_SIZE
+#                a4wide (default), a4, letter, legal or executive
 #  
 #  Use these variables to override the choices made by `configure' or to help
 #  it to find libraries and programs with nonstandard names/locations.
 #  
-#  Report bugs to <bug-make@gnu.org>.
-#  GNU Make home page: <https://www.gnu.org/software/make/>.
-#  General help using GNU software: <https://www.gnu.org/gethelp/>.
+#  Report bugs to the package provider.
+
+

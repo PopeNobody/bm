@@ -1,0 +1,4 @@
+bash autogen.sh
+bash configure --prefix=/opt/stow/tmux --enable-debug \
+  CFLAGS=-ggdb3\ -O0 CXXFLAGS=-ggdb3\ -O0 LDFLAGS=-ggdb3\ -L/opt/stow/tmux/lib \
+  --cache-file=../config.cache --enable-static

@@ -1,4 +1,5 @@
-source $(dirname "${BASH_SOURCE}")/config.bash.run
+source $(dirname "${BASH_SOURCE}")/config.comm.run
+bash configure "$@"
 ## `configure' configures GNU Make 4.4 to adapt to many kinds of systems.
 ## 
 ## Usage: ./configure [OPTION]... [VAR=VALUE]...
