@@ -1,6 +1,6 @@
 [submodule "bash"]
 	path = bash
-	url = https://github.com/PopeNobody/bash.git
+	url = git@github.com:PopeNobody/bash
 [submodule "make"]
 	path = make
 	url = git@github.com:PopeNobody/make.git
