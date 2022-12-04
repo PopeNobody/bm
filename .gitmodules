@@ -7,3 +7,6 @@
 [submodule "libpwent"]
 	path = libpwent
 	url = git@github.com:PopeNobody/libpwent
+[submodule "libevent"]
+	path = libevent
+	url = git@github.com:PopeNobody/libevent
