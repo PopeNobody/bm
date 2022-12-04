@@ -1,3 +1,2 @@
 set -- --cache-file=../config.cache "$@"
 set -- --prefix=$HOME/stow/bm "$@"
-set -- --disable-silent-rules "$@"
