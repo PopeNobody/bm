@@ -14,3 +14,7 @@
 	path = libevent
 	url = git@github.com:PopeNobody/libevent
 	branch = main
+[submodule "libevent/"]
+	branch = main
+[submodule "make/"]
+	branch = main
