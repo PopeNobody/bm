@@ -1,12 +1,16 @@
 [submodule "bash"]
 	path = bash
 	url = git@github.com:PopeNobody/bash.git
+	branch = main
 [submodule "make"]
 	path = make
 	url = git@github.com:PopeNobody/make.git
+	branch = main
 [submodule "libpwent"]
 	path = libpwent
 	url = git@github.com:PopeNobody/libpwent
+	branch = main
 [submodule "libevent"]
 	path = libevent
 	url = git@github.com:PopeNobody/libevent
+	branch = main
