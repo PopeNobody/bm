@@ -1,4 +1,3 @@
-set -xv
 source $(dirname "${BASH_SOURCE}")/config.comm.run
 set -- "$@" --enable-static
 exec bash configure "$@"
