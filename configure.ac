@@ -19,5 +19,6 @@ AC_CONFIG_FILES([Makefile])
 AC_CONFIG_SUBDIRS([bash
                    libevent
                    libpwent
+                   tmux
                    make])
 AC_OUTPUT
