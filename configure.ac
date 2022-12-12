@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.71])
-AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
+AC_INIT([tm], [1.0], [dev@copblock.app])
 
 # Checks for programs.
 AC_PROG_MAKE_SET
